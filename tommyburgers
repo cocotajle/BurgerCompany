@@ -2,7 +2,6 @@ public class Main {
 
     public static void main(String[] args) {
 
-
         Hamburger hamburger = new Hamburger("Base burger ","Chcicken", 3.55,"White bread");
         double price = hamburger.itemizeBurger();
         hamburger.addBurgerAdd1("Tomato" , 0.66);
@@ -16,14 +15,12 @@ public class Main {
         healthyBurger.addHealthyadd2(" Double meat", 1.45);
         System.out.println("Total healthy burger price is: " + healthyBurger.itemizeBurger()+ "\n ");
 
-        DeluxeBurger deluxeBurger = new DeluxeBurger
-        ("Deluxe burger", "Beef", 3.99, "Chesse roll bread","Twisted chips","Coca-cola zero");
+        DeluxeBurger deluxeBurger = new DeluxeBurger();
         deluxeBurger.itemizeBurger();
-        deluxeBurger.add1DeluxeBurger("Twisted chips", 1.23);
-        deluxeBurger.add2DeluxeBurger("Cola zero", 0.78);
-        System.out.println("Total burger price is : " +  deluxeBurger.itemizeBurger()+ "\n ");
+
     }
 }
+
 
 
 public class Hamburger {
@@ -92,15 +89,10 @@ public class Hamburger {
 return hamburgerPrice;
 
     }
-
-
-
-
 }
 
-package com.timbuchalka;
 
-import com.timbuchalka.Hamburger;
+
 
 public class HealthyBurger extends Hamburger {
     private String addHealthyName1;
@@ -137,7 +129,6 @@ return hamburgerPrice;
     }
 }
 
-package com.timbuchalka;
 
 public class DeluxeBurger extends Hamburger {
     public DeluxeBurger() {
