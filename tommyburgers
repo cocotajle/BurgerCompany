@@ -1,0 +1,155 @@
+public class Main {
+
+    public static void main(String[] args) {
+
+
+        Hamburger hamburger = new Hamburger("Base burger ","Chcicken", 3.55,"White bread");
+        double price = hamburger.itemizeBurger();
+        hamburger.addBurgerAdd1("Tomato" , 0.66);
+        hamburger.addBurgerAdd2("chesee", 0.98);
+        hamburger.addBurgerAdd3("lettuce", 0.44);
+        System.out.println("Total burger price is : " +  hamburger.itemizeBurger()+ "\n ");
+
+        HealthyBurger healthyBurger = new HealthyBurger("Mahi Mahi", 3.66);
+        healthyBurger.itemizeBurger();
+        healthyBurger.addHealthyadd1(" Tahu", 0.33);
+        healthyBurger.addHealthyadd2(" Double meat", 1.45);
+        System.out.println("Total healthy burger price is: " + healthyBurger.itemizeBurger()+ "\n ");
+
+        DeluxeBurger deluxeBurger = new DeluxeBurger
+        ("Deluxe burger", "Beef", 3.99, "Chesse roll bread","Twisted chips","Coca-cola zero");
+        deluxeBurger.itemizeBurger();
+        deluxeBurger.add1DeluxeBurger("Twisted chips", 1.23);
+        deluxeBurger.add2DeluxeBurger("Cola zero", 0.78);
+        System.out.println("Total burger price is : " +  deluxeBurger.itemizeBurger()+ "\n ");
+    }
+}
+
+
+public class Hamburger {
+    private String name;
+    private String meat;
+    private double price;
+    private String breadType;
+
+    private String add1Name;
+    private double add1Price;
+
+    private String add2Name;
+    private double add2Price;
+
+    private String add3Name;
+    private double add3Price;
+
+    private String add4Name;
+    private double add4Price;
+
+    public Hamburger(String name, String meat, double price, String breadType) {
+        this.name = name;
+        this.meat = meat;
+        this.price = price;
+        this.breadType = breadType;
+    }
+
+    public void addBurgerAdd1(String name, double price){
+        this.add1Name = name;
+        this.add1Price = price;
+    }
+        public void addBurgerAdd2(String name, double price){
+        this.add2Name = name;
+        this.add2Price = price;
+    }
+        public void addBurgerAdd3(String name, double price){
+        this.add3Name = name;
+        this.add3Price = price;
+    }
+        public void addBurgerAdd4(String name, double price){
+        this.add4Name = name;
+        this.add4Price = price;
+    }
+
+    public double itemizeBurger(){
+        double hamburgerPrice = this.price;
+        System.out.println(this.name + " on a " + this.breadType + " price is " + this.price);
+
+   if(this.add1Name != null){
+       hamburgerPrice += this.add1Price;
+       System.out.println("Added " + this.add1Name + " for an extra " + this.add1Price);
+   }
+   if(this.add2Name != null){
+       hamburgerPrice += this.add2Price;
+       System.out.println("Added " + this.add2Name + " for an extra " + this.add2Price);
+   }
+   if(this.add3Name != null){
+       hamburgerPrice += this.add3Price;
+       System.out.println("Added " + this.add3Name + " for an extra " + this.add3Price);
+   }
+   if(this.add4Name != null){
+       hamburgerPrice += this.add4Price;
+       System.out.println("Added " + this.add4Name + " for an extra " + this.add4Price);
+   }
+
+return hamburgerPrice;
+
+    }
+
+
+
+
+}
+
+package com.timbuchalka;
+
+import com.timbuchalka.Hamburger;
+
+public class HealthyBurger extends Hamburger {
+    private String addHealthyName1;
+    private double addHealthyPrice1;
+
+    private String addHealthyName2;
+    private double addHealthyPrice2;
+
+    public HealthyBurger( String meat, double price) {
+        super("Healthy", meat, price, "Brown type rye");
+       }
+
+       public void addHealthyadd1(String name, double price){
+        this.addHealthyName1 = name;
+        this.addHealthyPrice1 = price;
+       }
+       public void addHealthyadd2(String name, double price){
+        this.addHealthyName2 = name;
+        this.addHealthyPrice2 = price;
+       }
+
+    @Override
+    public double itemizeBurger() {
+        double hamburgerPrice = super.itemizeBurger();
+        if(this.addHealthyName1!= null){
+            hamburgerPrice += addHealthyPrice1;
+            System.out.println("Added" + addHealthyName1 + " for an extra: " + addHealthyPrice1);
+        }
+        if(this.addHealthyName2!= null){
+            hamburgerPrice += addHealthyPrice2;
+            System.out.println("Added" + addHealthyName2 + " for an extra: " + addHealthyPrice2);
+        }
+return hamburgerPrice;
+    }
+}
+
+package com.timbuchalka;
+
+public class DeluxeBurger extends Hamburger {
+    public DeluxeBurger() {
+        super("Deluxe burger","Beef",3.99,"Chesse roll bread");
+        super.addBurgerAdd1("Chips",2.23);
+        super.addBurgerAdd2("Drink", 1.89);
+    }
+
+    @Override
+    public void addBurgerAdd1(String name, double price) {
+        System.out.println("");
+    }
+}
+
+
