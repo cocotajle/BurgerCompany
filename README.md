@@ -1,2 +1,2 @@
 # javatimudemy
-Exercise from java Tim Udemy
+My solutions.
